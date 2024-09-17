@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            background: -webkit-linear-gradient(left, #3931af, #3931af);
+        }
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding: 10px;
+            background: #121212; 
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        .emp-profile {
+            padding: 3%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            border-radius: 0.5rem;
+            background: #fff;
+        }
+        .profile-img {
+            text-align: center;
+        }
+        .profile-img img {
+            width: 70%;
+            height: 100%;
+        }
+        .profile-img .file {
+            position: relative;
+            overflow: hidden;
+            margin-top: -20%;
+            width: 70%;
+            border: none;
+            border-radius: 0;
+            font-size: 15px;
+            background: #212529b8;
+        }
+        .profile-img .file input {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+        .profile-head h5 {
+            color: #333;
+        }
+        .profile-head h6 {
+            color: #0062cc;
+        }
+        .profile-edit-btn {
+            border: none;
+            border-radius: 1.5rem;
+            width: 70%;
+            padding: 2%;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+        }
+        .profile-head .nav-tabs {
+            margin-bottom: 5%;
+        }
+        .profile-head .nav-tabs .nav-link {
+            font-weight: 600;
+            border: none;
+        }
+        .profile-head .nav-tabs .nav-link.active {
+            border: none;
+            border-bottom: 2px solid #0062cc;
+        }
+        .profile-work {
+            padding: 14%;
+            margin-top: -15%;
+        }
+        .profile-work p {
+            font-size: 12px;
+            color: #818182;
+            font-weight: 600;
+            margin-top: 10%;
+        }
+        .profile-work a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .profile-work ul {
+            list-style: none;
+        }
+        .profile-tab label {
+            font-weight: 600;
+        }
+        .profile-tab p {
+            font-weight: 600;
+            color: #0062cc;
+        }
+        .align-right {
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Blogger</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="articles.html">Publish </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="welcome.html">My Blogger</a>
+        </li>
+        <li class="nav-item align-right">
+            <a href="login.html">
+                <button class="btn btn-dark" onclick="logout()">Logout</button>
+            </a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<div class="container emp-profile">
+    <form id="profileForm">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="data:image/png;base64,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" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 id="profileName">Arwa Alqhtani</h5>
+                    <h6 id="profileProfession">Web Developer and Designer</h6>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="profile-edit-btn" id="editProfileBtn" onclick="toggleEditMode()">Edit Profile</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>SKILLS</p>
+                    <a href="">Web Designer</a><br/>
+                    <a href="">Web Developer</a><br/>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>User Id</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="userId">arwa1</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="name">Arwa Alqhtani</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="email">alqhtaniarwa2@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="phone">0502703918</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profession</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="profession">Web Developer and Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Personal Blog. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleEditMode() {
+        let isEditMode = document.getElementById('editProfileBtn').innerText === 'Save Changes';
+        let fields = ['name', 'email', 'phone', 'profession'];
+
+        if (isEditMode) {
+            fields.forEach(field => {
+                let input = document.getElementById(`${field}Input`);
+                let p = document.getElementById(field);
+                p.innerText = input.value;
+                input.remove();
+            });
+            document.getElementById('editProfileBtn').innerText = 'Edit Profile';
+        } else {
+            fields.forEach(field => {
+                let p = document.getElementById(field);
+                let input = document.createElement('input');
+                input.type = 'text';
+                input.value = p.innerText;
+                input.id = `${field}Input`;
+                p.innerHTML = '';
+                p.appendChild(input);
+            });
+            document.getElementById('editProfileBtn').innerText = 'Save Changes';
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
