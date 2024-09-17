@@ -1,0 +1,32 @@
+.hero {
+    background: url(https://images.unsplash.com/photo-1515378791036-0648a3ef77b2
+    ) center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.content-section {
+    margin-top: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background: #121212; 
+    color: #ffffff;
+    border-radius: 5px;
+}
