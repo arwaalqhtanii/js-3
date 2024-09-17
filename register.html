@@ -61,55 +61,9 @@
         <p>&copy; 2024 Personal Blog. All rights reserved.</p>
     </footer>
 
-    <script>
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(String(email).toLowerCase());
-        }
-
-        function registerUser() {
-            const name = document.getElementById('typeText').value.trim();
-            const email = document.getElementById('typeEmailX').value.trim();
-            const password = document.getElementById('typePasswordX').value.trim();
-
-            if (!name || !email || !password) {
-                alert('All fields are required!');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                alert('Please enter a valid email address!');
-                return;
-            }
-
-            if (password.length < 6) {
-                alert('Password must be at least 6 characters long!');
-                return;
-            }
-
-            fetch('https://66e7e6bbb17821a9d9da704c.mockapi.io/home', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, password })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                alert('Registration successful!');
-                window.location.href = 'home.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Registration failed. Please try again.');
-            });
-        }
-    </script>  don't use catch
+    <script src="reg.js">
+        
+    </script> 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
